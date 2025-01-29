@@ -35,11 +35,19 @@
             home-manager.useUserPackages = true;
             home-manager.users.dhess = import ./home.nix;
 
+            # Enable Bluetooth services
+            hardware.bluetooth.enable = true;
+            hardware.bluetooth.powerOnBoot = true;
+
+            # Add user to Bluetooth group
+            users.users.dhess.extraGroups = ["lp" "wheel" "bluetooth"];
+
             environment.systemPackages = with pkgs; [
               vscode
               neovim
               git
-              alejandra
+              alejandra # Formatter
+              bluez # Bluetooth utilities
             ];
           }
         ];
