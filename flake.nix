@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Home manager
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,21 +17,23 @@
     home-manager,
     ...
   }: let
-    lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true; # <---- Allow unfree packages here
+      config.allowUnfree = true;
     };
   in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          #./systems/vm/configuration.nix
           ./systems/heimRechner/configuration.nix
+          home-manager.nixosModules.home-manager
           {
-            nixpkgs.config.allowUnfree = true; # <---- Allow unfree packages here
+            nixpkgs.config.allowUnfree = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.dhess = import ./home.nix;
 
             environment.systemPackages = with pkgs; [
               vscode
@@ -39,18 +41,6 @@
               git
               alejandra
             ];
-          }
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      dhess = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home.nix
-          {
-            nixpkgs.config.allowUnfree = true;
           }
         ];
       };
