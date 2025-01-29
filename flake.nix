@@ -48,6 +48,10 @@
               git
               alejandra # Formatter
               bluez # Bluetooth utilities
+              jetbrains-toolbox
+              jetbrains.rider
+              dotnet-sdk_9
+              dotnet-runtime_9
             ];
           }
         ];
