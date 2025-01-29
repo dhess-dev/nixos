@@ -11,21 +11,41 @@
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;  # <---- Allow unfree packages here
+    };
   in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
-       # modules = [ ./systems/heimrechner/configuration.nix ];
-        modules = [ ./systems/vm/configuration.nix ];  
+        modules = [
+          ./systems/vm/configuration.nix
+          #./systems/heimRechner/configuration.nix 
+	  {
+            nixpkgs.config.allowUnfree = true;  # <---- Allow unfree packages here
+
+            environment.systemPackages = with pkgs; [
+              vscode 
+              neovim
+              git
+            ];
+          }
+        ];  
       };
     };
 
     homeConfigurations = {
       dhess = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          {
+            nixpkgs.config.allowUnfree = true;  # <---- Allow unfree packages for Home Manager
+          }
+        ];
       };
     };
   };
 }
+
