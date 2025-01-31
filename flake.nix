@@ -52,8 +52,10 @@
               jetbrains.rider
               dotnet-sdk_9
               dotnet-runtime_9
-	      google-chrome
-	      nodejs_22
+              google-chrome
+              nodejs_22
+              losslesscut-bin
+              brave
             ];
           }
         ];
