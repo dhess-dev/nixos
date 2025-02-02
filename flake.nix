@@ -56,7 +56,7 @@
               nodejs_22
               losslesscut-bin
               brave
-              keepass
+              keepassxc
             ];
           }
         ];
