@@ -27,6 +27,7 @@
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          ./modules
           ./systems/heimRechner/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -41,7 +42,6 @@
 
             # Add user to Bluetooth group
             users.users.dhess.extraGroups = ["lp" "wheel" "bluetooth"];
-
             environment.systemPackages = with pkgs; [
               vscode
               neovim
