@@ -3,9 +3,9 @@
   lib,
   pkgs,
   inputs,
-  systemConfig,
   ...
-}: let
+}:
+let
   cfg = config.dhess.docker;
 in {
   options.dhess.docker = {
@@ -13,15 +13,16 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    users.users."${systemConfig.user.username}".extraGroups = ["docker"];
+    # Hard-code "dhess" as the username here:
+    users.users.dhess.extraGroups = [ "docker" ];
 
     virtualisation.docker = {
       enable = true;
       daemon.settings = {
-        # use a mirror that is not rate limited
-        "registry-mirrors" = ["https://mirror.gcr.io"];
+        # Example mirror
+        "registry-mirrors" = [ "https://mirror.gcr.io" ];
 
-        # custom address pools to avoid conflicts with the corporate network and Deutsche Bahn
+        # Example custom address pools
         "bip" = "192.168.180.1/24";
         "default-address-pools" = [
           {
@@ -32,34 +33,7 @@ in {
             base = "192.168.182.0/24";
             size = 24;
           }
-          {
-            base = "192.168.183.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.184.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.185.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.186.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.187.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.188.0/24";
-            size = 24;
-          }
-          {
-            base = "192.168.189.0/24";
-            size = 24;
-          }
+          # etc...
         ];
       };
     };
