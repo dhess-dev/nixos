@@ -1,3 +1,7 @@
 {
-  imports = [./docker];
+  imports = [
+    ./desktop
+    ./docker
+    ./locale
+   ];
 }
