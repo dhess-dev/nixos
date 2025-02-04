@@ -29,7 +29,8 @@
         modules = [
           ./modules
           #./systems/heimRechner/configuration.nix
-          ./systems/vm/configuration.nix
+          #./systems/vm/configuration.nix
+          ./systems/framework/configuration.nix
           home-manager.nixosModules.home-manager
           {
             nixpkgs.config.allowUnfree = true;
@@ -58,6 +59,7 @@
               losslesscut-bin
               brave
               keepassxc
+              nextcloud-client
             ];
           }
         ];
