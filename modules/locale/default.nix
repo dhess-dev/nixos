@@ -1,5 +1,5 @@
 {
-    # Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
@@ -16,7 +16,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
 
   # Configure keymap in X11
   services.xserver.xkb = {

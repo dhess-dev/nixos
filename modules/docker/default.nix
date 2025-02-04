@@ -4,8 +4,7 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   cfg = config.dhess.docker;
 in {
   options.dhess.docker = {
@@ -14,13 +13,13 @@ in {
 
   config = lib.mkIf cfg.enable {
     # Hard-code "dhess" as the username here:
-    users.users.dhess.extraGroups = [ "docker" ];
+    users.users.dhess.extraGroups = ["docker"];
 
     virtualisation.docker = {
       enable = true;
       daemon.settings = {
         # Example mirror
-        "registry-mirrors" = [ "https://mirror.gcr.io" ];
+        "registry-mirrors" = ["https://mirror.gcr.io"];
 
         # Example custom address pools
         "bip" = "192.168.180.1/24";

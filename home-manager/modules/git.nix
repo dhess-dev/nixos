@@ -13,6 +13,11 @@
       init.defaultBranch = "main";
       core.autocrlf = false;
       credential.helper = "libsecret";
+      rerere.enabled = true;
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "/home/dhess/.ssh/id_ed25519";
     };
+    difftastic.enable = true;
   };
 }

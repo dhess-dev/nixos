@@ -3,5 +3,5 @@
     ./desktop
     ./docker
     ./locale
-   ];
+  ];
 }
