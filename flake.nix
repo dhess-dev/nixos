@@ -28,13 +28,14 @@
         inherit system;
         modules = [
           ./modules
-          ./systems/heimRechner/configuration.nix
+          #./systems/heimRechner/configuration.nix
+          ./systems/vm/configuration.nix
           home-manager.nixosModules.home-manager
           {
             nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.dhess = import ./home.nix;
+            home-manager.users.dhess = import ./home-manager/home.nix;
 
             # Enable Bluetooth services
             hardware.bluetooth.enable = true;
