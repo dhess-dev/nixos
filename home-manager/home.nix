@@ -6,6 +6,7 @@
   imports = [
     ./modules/git.nix
     ./modules/ssh.nix
+    ./modules/code-editors.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
