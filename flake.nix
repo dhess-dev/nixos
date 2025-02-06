@@ -60,6 +60,7 @@
               brave
               keepassxc
               nextcloud-client
+              discord
             ];
           }
         ];
