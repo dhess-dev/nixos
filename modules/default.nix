@@ -3,5 +3,6 @@
     ./desktop
     ./docker
     ./locale
+    ./cloudflare-warp
   ];
 }

@@ -83,4 +83,5 @@
   dhess.docker.enable = true;
   # Enable Dekstop
   dhess.desktop.enable = true;
+  dhess.cloudflare-warp.enable = true;
 }
