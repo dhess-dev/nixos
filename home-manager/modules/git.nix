@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.gitFull;
     userName = "dhess-dev";
-    userEmail = "danielhess.dev@gmail.com";
+    userEmail = "d.hess@human.de";
     lfs.enable = true;
     extraConfig = {
       init.defaultBranch = "main";
