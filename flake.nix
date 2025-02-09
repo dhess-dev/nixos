@@ -61,6 +61,7 @@
               keepassxc
               nextcloud-client
               discord
+              pkgs.wasm-tools
             ];
           }
         ];
