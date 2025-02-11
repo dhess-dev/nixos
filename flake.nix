@@ -62,6 +62,7 @@
               nextcloud-client
               discord
               pkgs.wasm-tools
+              virtualbox
             ];
           }
         ];
