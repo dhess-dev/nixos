@@ -63,6 +63,7 @@
               discord
               pkgs.wasm-tools
               virtualbox
+              dbeaver-bin
             ];
           }
         ];
