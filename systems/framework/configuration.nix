@@ -86,4 +86,5 @@
   # Enable Dekstop
   dhess.desktop.enable = true;
   dhess.cloudflare-warp.enable = true;
+  dhess.dotnet.enable = false;
 }

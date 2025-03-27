@@ -4,5 +4,6 @@
     ./docker
     ./locale
     ./cloudflare-warp
+    ./dotnet
   ];
 }
