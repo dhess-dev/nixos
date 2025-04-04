@@ -62,6 +62,7 @@
               pkgs.wasm-tools
               virtualbox
               dbeaver-bin
+              pkgs.rpi-imager
             ];
           }
         ];
