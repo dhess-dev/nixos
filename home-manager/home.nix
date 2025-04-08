@@ -4,11 +4,11 @@
   ...
 }: {
   imports = [
-    ./modules/git.nix
-    ./modules/ssh.nix
-    ./modules/code-editors.nix
-    ./modules/dev-tools.nix
-    ./modules/shells.nix
+    ./modules/git
+    ./modules/ssh
+    ./modules/code-editors
+    ./modules/dev-tools
+    ./modules/shells
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
