@@ -91,4 +91,7 @@
   programs.home-manager.enable = true;
   # automatically reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+  # enable direnv
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 }

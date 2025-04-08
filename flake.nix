@@ -23,13 +23,26 @@
       config.allowUnfree = true;
     };
   in {
+    # 🔧 Dev shell for direnv / nix develop
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      name = "nixos-dev-shell";
+      buildInputs = with pkgs; [
+        git
+        neovim
+        nodejs_22
+        alejandra
+      ];
+      shellHook = ''
+        echo "🛠️ DevShell activated"
+      '';
+    };
+
+    # 💻 NixOS system configuration
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./modules
-          #./systems/heimRechner/configuration.nix
-          #./systems/vm/configuration.nix
           ./systems/framework/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -38,18 +51,15 @@
             home-manager.useUserPackages = true;
             home-manager.users.dhess = import ./home-manager/home.nix;
 
-            # Enable Bluetooth services
             hardware.bluetooth.enable = true;
             hardware.bluetooth.powerOnBoot = true;
-
-            # Add user to Bluetooth group
             users.users.dhess.extraGroups = ["lp" "wheel" "bluetooth"];
             environment.systemPackages = with pkgs; [
               vscode
               neovim
               git
-              alejandra # Formatter
-              bluez # Bluetooth utilities
+              alejandra
+              bluez
               jetbrains-toolbox
               jetbrains.rider
               google-chrome
