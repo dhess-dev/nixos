@@ -18,12 +18,26 @@
     ...
   }: let
     system = "x86_64-linux";
+    lib = nixpkgs.lib;
+    # Central user configuration
+    defaultConfig = {
+      user = {
+        username = "dhess";
+        fullName = "Daniel Hess";
+        email = "danielhess.dev@gmail.com";
+        initialPassword = "password";
+        authorizedKeys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOYFMRnokzxz0IKHKJA+9JRxj2IqxWXgF7bCDrXhrT55 danielhess.dev@gmail.com"
+        ];
+        extraGroups = ["wheel" "lp" "bluetooth"];
+      };
+    };
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
   in {
-    # 🔧 Dev shell for direnv / nix develop
+    #  Dev shell for direnv / nix develop
     devShells.x86_64-linux.default = pkgs.mkShell {
       name = "nixos-dev-shell";
       buildInputs = with pkgs; [
@@ -41,6 +55,9 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = {
+          inherit defaultConfig;
+        };
         modules = [
           ./modules
           ./systems/framework/configuration.nix
@@ -49,11 +66,22 @@
             nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.dhess = import ./home-manager/home.nix;
-
-            hardware.bluetooth.enable = true;
-            hardware.bluetooth.powerOnBoot = true;
-            users.users.dhess.extraGroups = ["lp" "wheel" "bluetooth"];
+            home-manager.users.${defaultConfig.user.username} = {
+              config,
+              pkgs,
+              lib,
+              ...
+            }: (import ./home-manager/home.nix {
+              inherit pkgs lib defaultConfig;
+              inherit config;
+            });
+            users.users.${defaultConfig.user.username} = {
+              isNormalUser = true;
+              initialPassword = defaultConfig.user.initialPassword;
+              extraGroups = defaultConfig.user.extraGroups;
+              openssh.authorizedKeys.keys = defaultConfig.user.authorizedKeys;
+              description = defaultConfig.user.fullName;
+            };
             environment.systemPackages = with pkgs; [
               vscode
               neovim
@@ -74,6 +102,9 @@
               dbeaver-bin
               pkgs.rpi-imager
             ];
+
+            hardware.bluetooth.enable = true;
+            hardware.bluetooth.powerOnBoot = true;
           }
         ];
       };

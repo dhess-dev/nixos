@@ -1,6 +1,8 @@
 {
   config,
   pkgs,
+  lib,
+  defaultConfig,
   ...
 }: {
   imports = [
@@ -12,8 +14,8 @@
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "dhess";
-  home.homeDirectory = "/home/dhess";
+  home.username = defaultConfig.user.username;
+  home.homeDirectory = "/home/${defaultConfig.user.username}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

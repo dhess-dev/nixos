@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  systemConfig,
+  defaultConfig,
   ...
 }: let
   cfg = config.dhess.zsh;
@@ -18,7 +18,7 @@ in {
     environment.pathsToLink = ["/share/zsh"];
 
     users.users = {
-      "dhess" = {
+      ${defaultConfig.user.username} = {
         shell = pkgs.zsh;
       };
     };
