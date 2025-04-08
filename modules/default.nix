@@ -5,5 +5,6 @@
     ./locale
     ./cloudflare-warp
     ./dotnet
+    ./zsh
   ];
 }

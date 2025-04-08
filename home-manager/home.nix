@@ -8,6 +8,7 @@
     ./modules/ssh.nix
     ./modules/code-editors.nix
     ./modules/dev-tools.nix
+    ./modules/shells.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -79,19 +80,8 @@
     # EDITOR = "emacs";
   };
 
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      ".." = "cd ..";
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   # automatically reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-  # enable direnv
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
 }

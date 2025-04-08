@@ -38,5 +38,6 @@ in {
     };
     # Enable CUPS to print documents.
     services.printing.enable = true;
+    dhess.zsh.enable = true;
   };
 }
