@@ -53,7 +53,7 @@
 
     # 💻 NixOS system configuration
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      framework = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit defaultConfig;
@@ -101,6 +101,7 @@
               virtualbox
               dbeaver-bin
               pkgs.rpi-imager
+              pkgs.onlyoffice-desktopeditors
             ];
 
             hardware.bluetooth.enable = true;
