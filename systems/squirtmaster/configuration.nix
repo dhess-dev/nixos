@@ -30,9 +30,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dhess = {
-    isNormalUser = true;
-    description = "dhess";
-    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird

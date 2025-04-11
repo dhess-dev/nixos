@@ -29,7 +29,7 @@
         authorizedKeys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOYFMRnokzxz0IKHKJA+9JRxj2IqxWXgF7bCDrXhrT55 danielhess.dev@gmail.com"
         ];
-        extraGroups = ["wheel" "lp" "bluetooth"];
+        extraGroups = ["wheel" "lp" "bluetooth" "networkmanager"];
       };
     };
     pkgs = import nixpkgs {
