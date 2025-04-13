@@ -158,6 +158,7 @@
               dbeaver-bin
               pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
+              ppsspp-sdl-wayland
             ];
 
             hardware.bluetooth.enable = true;
