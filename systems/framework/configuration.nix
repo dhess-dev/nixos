@@ -31,6 +31,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Arduino 2
+  modules.arduinoIDE.enable = true;
+
   # Enable Avahi/mDNS for .local resolution
   services.avahi = {
     enable = true;
@@ -83,4 +86,10 @@
   dhess.desktop.enable = true;
   dhess.cloudflare-warp.enable = true;
   dhess.dotnet.enable = false;
+
+  # Arduino 2.0
+
+  # Creates the fuse group and adds your user
+  users.groups.fuse = {};
+  users.users.dhess.extraGroups = ["fuse"];
 }

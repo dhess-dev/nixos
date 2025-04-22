@@ -6,5 +6,6 @@
     ./cloudflare-warp
     ./dotnet
     ./zsh
+    ./arduino
   ];
 }

@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
-    "pinage404.nix-extension-pack"
+    "pinage404.nix-extension-pack",
+    "espressif.esp-idf-extension"
   ]
 }

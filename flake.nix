@@ -29,7 +29,7 @@
         authorizedKeys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOYFMRnokzxz0IKHKJA+9JRxj2IqxWXgF7bCDrXhrT55 danielhess.dev@gmail.com"
         ];
-        extraGroups = ["wheel" "lp" "bluetooth" "networkmanager"];
+        extraGroups = ["wheel" "lp" "bluetooth" "networkmanager" "dialout"];
       };
     };
     pkgs = import nixpkgs {
@@ -102,6 +102,8 @@
               dbeaver-bin
               pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
+              protonvpn-cli
+              arduino
             ];
 
             hardware.bluetooth.enable = true;
@@ -159,6 +161,7 @@
               pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
               ppsspp-sdl-wayland
+              protonvpn-gui
             ];
 
             hardware.bluetooth.enable = true;
