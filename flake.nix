@@ -104,6 +104,8 @@
               pkgs.onlyoffice-desktopeditors
               protonvpn-cli
               arduino
+              unzip
+              jdk21
             ];
 
             hardware.bluetooth.enable = true;
