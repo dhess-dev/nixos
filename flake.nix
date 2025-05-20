@@ -106,6 +106,8 @@
               arduino
               unzip
               jdk21
+              openssl
+              microsoft-edge
             ];
 
             hardware.bluetooth.enable = true;

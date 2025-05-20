@@ -1,15 +1,31 @@
 {
+  // General settings
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  // Enable and configure Nix language server
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nil",
   "nix.serverSettings": {
-    // settings for 'nil' LSP
     "nil": {
       "diagnostics": {
-        "ignored": ["unused_binding", "unused_with"]
+        "ignored": [
+          "unused_binding",
+          "unused_with"
+        ]
       },
       "formatting": {
-        "command": ["alejandra"]
+        "command": [
+          "alejandra"
+        ]
       }
     }
-  }
+  },
+  // Java settings
+  "[java]": {
+    "editor.defaultFormatter": "RudraPatel.prettier-plugin-java-vscode"
+  },
+  // Tell Java Language Server to use system JDK (IMPORTANT for NixOS)
+  "java.jdt.ls.java.home": "/nix/store/YOUR-JAVA-PATH",
+  // Auto format files on save
+  "editor.formatOnSave": true
 }
