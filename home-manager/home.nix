@@ -11,6 +11,7 @@
     ./modules/code-editors
     ./modules/dev-tools
     ./modules/shells
+    ./modules/arduino-ide
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

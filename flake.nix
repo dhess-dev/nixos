@@ -107,7 +107,7 @@
               unzip
               jdk21
               openssl
-              microsoft-edge
+              wget
             ];
 
             hardware.bluetooth.enable = true;
