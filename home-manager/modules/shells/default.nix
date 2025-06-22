@@ -33,6 +33,8 @@ in
         bindkey "^[[OF" end-of-line
       '';
     };
+
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
+    programs.nushell.enable = true;
   }

@@ -108,6 +108,7 @@
               jdk21
               openssl
               wget
+              vscode-fhs
             ];
 
             hardware.bluetooth.enable = true;
