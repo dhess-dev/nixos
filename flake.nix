@@ -109,6 +109,7 @@
               openssl
               wget
               vscode-fhs
+              obsidian
             ];
 
             hardware.bluetooth.enable = true;
