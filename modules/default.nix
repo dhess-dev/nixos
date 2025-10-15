@@ -7,5 +7,6 @@
     ./dotnet
     ./zsh
     ./arduino
+    ./virtualbox
   ];
 }

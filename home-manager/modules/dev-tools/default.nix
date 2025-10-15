@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  dotnet = pkgs.dotnetCorePackages.sdk_9_0;
+  dotnet = pkgs.dotnetCorePackages.sdk_10_0;
 in {
   home.sessionVariables = {
     DOTNET_ROOT = "${dotnet}/share/dotnet";

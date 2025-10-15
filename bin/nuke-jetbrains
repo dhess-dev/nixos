@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# Resolve the absolute directory of this script (works with symlinks too)
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+# Optional shared library
+if [[ -f "$SCRIPT_DIR/lib.sh" ]]; then
+  # shellcheck source=/dev/null
+  source "$SCRIPT_DIR/lib.sh"
+else
+  print_warning() { printf '\e[33m%s\e[0m\n' "$*"; }
+fi
+
+print_warning "This will remove all JetBrains IDEs installed via Toolbox."
+print_warning "It will also remove configuration, cache, plugins and desktop files."
+
+read -r -p "Proceed? [y/N] " reply
+if [[ ! "$reply" =~ ^[Yy]$ ]]; then
+  echo "Aborted."
+  exit 1
+fi
+
+paths=(
+  "$HOME/.config/JetBrains"
+  "$HOME/.cache/JetBrains"
+  "$HOME/.local/share/JetBrains"
+  "$HOME/.local/share/applications/jetbrains-*.desktop"
+  "$HOME/.local/share/JetBrains/Toolbox"
+  "$HOME/.local/share/JetBrains/Toolbox/scripts"
+)
+
+echo "Removing JetBrains files..."
+for p in "${paths[@]}"; do
+  # Quote the non-glob part; allow the *.desktop glob to expand
+  shopt -s nullglob
+  rm -rf $p 2>/dev/null || true
+done
+
+echo "Done."

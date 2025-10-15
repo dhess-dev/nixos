@@ -98,7 +98,6 @@
               nextcloud-client
               discord
               pkgs.wasm-tools
-              virtualbox
               dbeaver-bin
               pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
@@ -110,6 +109,8 @@
               wget
               vscode-fhs
               obsidian
+              xournalpp
+              steam
             ];
 
             hardware.bluetooth.enable = true;
