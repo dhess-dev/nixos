@@ -85,7 +85,7 @@
   # Enable Dekstop
   dhess.desktop.enable = true;
   dhess.cloudflare-warp.enable = true;
-  dhess.dotnet.enable = false;
+  dhess.dotnet.enable = true;
   dhess.virtualbox.enable = true;
 
   # Arduino 2.0

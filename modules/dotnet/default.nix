@@ -5,19 +5,25 @@
   ...
 }: let
   cfg = config.dhess.dotnet;
+  dotnet-combined = pkgs.dotnetCorePackages.combinePackages cfg.sdks;
 in {
   options.dhess.dotnet = {
     enable = lib.mkEnableOption "Enable .NET";
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = pkgs.dotnetCorePackages.sdk_9_0;
-      description = "The .NET SDK to install";
+    sdks = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = with pkgs.dotnetCorePackages; [
+        sdk_10_0
+        sdk_9_0
+      ];
+      description = "List of .NET SDKs to install";
     };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [cfg.package];
+    environment.systemPackages = [
+      dotnet-combined
+    ];
     environment.sessionVariables = {
-      DOTNET_ROOT = "${cfg.package}/share/dotnet";
+      DOTNET_ROOT = "${dotnet-combined}/share/dotnet";
       MSBUILDTERMINALLOGGER = "auto";
     };
   };

@@ -9,7 +9,6 @@
     ./modules/git
     ./modules/ssh
     ./modules/code-editors
-    ./modules/dev-tools
     ./modules/shells
     ./modules/arduino-ide
   ];
