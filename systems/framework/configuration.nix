@@ -31,16 +31,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Arduino 2
-  modules.arduinoIDE.enable = true;
-
-  # Enable Avahi/mDNS for .local resolution
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    openFirewall = true;
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

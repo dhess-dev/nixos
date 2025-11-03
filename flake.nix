@@ -99,9 +99,7 @@
               discord
               pkgs.wasm-tools
               dbeaver-bin
-              pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
-              protonvpn-cli
               arduino
               unzip
               jdk21
@@ -165,7 +163,6 @@
               pkgs.wasm-tools
               virtualbox
               dbeaver-bin
-              pkgs.rpi-imager
               pkgs.onlyoffice-desktopeditors
               ppsspp-sdl-wayland
               protonvpn-gui
