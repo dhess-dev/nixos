@@ -116,61 +116,112 @@
           }
         ];
       };
-      squirtmaster = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit defaultConfig;
-        };
-        modules = [
-          ./modules
-          ./systems/squirtmaster/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${defaultConfig.user.username} = {
-              config,
-              pkgs,
-              lib,
-              ...
-            }: (import ./home-manager/home.nix {
-              inherit pkgs lib defaultConfig;
-              inherit config;
-            });
-            users.users.${defaultConfig.user.username} = {
-              isNormalUser = true;
-              initialPassword = defaultConfig.user.initialPassword;
-              extraGroups = defaultConfig.user.extraGroups;
-              openssh.authorizedKeys.keys = defaultConfig.user.authorizedKeys;
-              description = defaultConfig.user.fullName;
-            };
-            environment.systemPackages = with pkgs; [
-              vscode
-              neovim
-              git
-              alejandra
-              bluez
-              jetbrains-toolbox
-              jetbrains.rider
-              google-chrome
-              nodejs_22
-              losslesscut-bin
-              brave
-              keepassxc
-              nextcloud-client
-              discord
-              pkgs.wasm-tools
-              virtualbox
-              dbeaver-bin
-              pkgs.onlyoffice-desktopeditors
-              ppsspp-sdl-wayland
-              protonvpn-gui
-            ];
+    squirtmaster = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit defaultConfig;
+      };
+      modules = [
+        ./modules
+        ./systems/squirtmaster/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          nixpkgs.config.allowUnfree = true;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${defaultConfig.user.username} = {
+            config,
+            pkgs,
+            lib,
+            ...
+          }: (import ./home-manager/home.nix {
+            inherit pkgs lib defaultConfig;
+            inherit config;
+          });
+          users.users.${defaultConfig.user.username} = {
+            isNormalUser = true;
+            initialPassword = defaultConfig.user.initialPassword;
+            extraGroups = defaultConfig.user.extraGroups;
+            openssh.authorizedKeys.keys = defaultConfig.user.authorizedKeys;
+            description = defaultConfig.user.fullName;
+          };
+          environment.systemPackages = with pkgs; [
+            vscode
+            neovim
+            git
+            alejandra
+            bluez
+            jetbrains-toolbox
+            jetbrains.rider
+            google-chrome
+            nodejs_22
+            losslesscut-bin
+            brave
+            keepassxc
+            nextcloud-client
+            discord
+            virtualbox
+            dbeaver-bin
+            pkgs.onlyoffice-desktopeditors
+            ppsspp-sdl-wayland
+            protonvpn-gui
+          ];
 
-            hardware.bluetooth.enable = true;
-            hardware.bluetooth.powerOnBoot = true;
-          }
+          hardware.bluetooth.enable = true;
+          hardware.bluetooth.powerOnBoot = true;
+    }
+        ];
+      };
+    dellulu = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {
+        inherit defaultConfig;
+      };
+      modules = [
+        ./modules
+        ./systems/dellulu/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          nixpkgs.config.allowUnfree = true;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${defaultConfig.user.username} = {
+            config,
+            pkgs,
+            lib,
+            ...
+          }: (import ./home-manager/home.nix {
+            inherit pkgs lib defaultConfig;
+            inherit config;
+          });
+          users.users.${defaultConfig.user.username} = {
+            isNormalUser = true;
+            initialPassword = defaultConfig.user.initialPassword;
+            extraGroups = defaultConfig.user.extraGroups;
+            openssh.authorizedKeys.keys = defaultConfig.user.authorizedKeys;
+            description = defaultConfig.user.fullName;
+          };
+          environment.systemPackages = with pkgs; [
+            vscode
+            git
+            alejandra
+            bluez
+            jetbrains-toolbox
+            jetbrains.rider
+            google-chrome
+            nodejs_22
+            brave
+            keepassxc
+            nextcloud-client
+            discord
+            virtualbox
+            dbeaver-bin
+            pkgs.onlyoffice-desktopeditors
+          ];
+
+          hardware.bluetooth.enable = true;
+          hardware.bluetooth.powerOnBoot = true;
+  }
         ];
       };
     };
