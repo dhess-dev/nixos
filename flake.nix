@@ -109,6 +109,7 @@
               obsidian
               xournalpp
               steam
+              blanket
             ];
 
             hardware.bluetooth.enable = true;
