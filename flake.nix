@@ -83,7 +83,7 @@
               description = defaultConfig.user.fullName;
             };
             environment.systemPackages = with pkgs; [
-              vscode
+              vscode-fhs
               neovim
               git
               alejandra
@@ -105,7 +105,6 @@
               jdk21
               openssl
               wget
-              vscode-fhs
               obsidian
               xournalpp
               steam
