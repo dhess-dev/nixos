@@ -147,7 +147,7 @@
               description = defaultConfig.user.fullName;
             };
             environment.systemPackages = with pkgs; [
-              vscode
+              vscode-fhs
               neovim
               git
               alejandra
@@ -161,7 +161,6 @@
               keepassxc
               nextcloud-client
               discord
-              virtualbox
               dbeaver-bin
               pkgs.onlyoffice-desktopeditors
               ppsspp-sdl-wayland

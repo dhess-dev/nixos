@@ -80,4 +80,6 @@
   dhess.docker.enable = true;
   # Enable Dekstop
   dhess.desktop.enable = true;
+  dhess.dotnet.enable = true;
+  dhess.virtualbox.enable = true;
 }
