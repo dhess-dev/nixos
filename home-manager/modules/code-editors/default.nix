@@ -8,14 +8,14 @@
 in {
   home.packages = with pkgs; [
     # Editors
-    vscode
+    vscode-fhs
     kdePackages.kate
 
     # https://nixos.wiki/wiki/Jetbrains_Tools
     (jetbrains.plugins.addPlugins jetbrains.rider jetbrains-plugins)
-    (jetbrains.plugins.addPlugins jetbrains.rust-rover jetbrains-plugins)
-    (jetbrains.plugins.addPlugins jetbrains.webstorm jetbrains-plugins)
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate jetbrains-plugins)
-    jetbrains-toolbox
+    #(jetbrains.plugins.addPlugins jetbrains.rust-rover jetbrains-plugins)
+    #(jetbrains.plugins.addPlugins jetbrains.webstorm jetbrains-plugins)
+    #(pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate jetbrains-plugins)
+    #jetbrains-toolbox
   ];
 }

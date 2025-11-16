@@ -88,8 +88,6 @@
               git
               alejandra
               bluez
-              jetbrains-toolbox
-              jetbrains.rider
               google-chrome
               nodejs_22
               losslesscut-bin
@@ -151,8 +149,6 @@
               git
               alejandra
               bluez
-              jetbrains-toolbox
-              jetbrains.rider
               google-chrome
               nodejs_22
               losslesscut-bin
@@ -201,12 +197,9 @@
               description = defaultConfig.user.fullName;
             };
             environment.systemPackages = with pkgs; [
-              vscode
               git
               alejandra
               bluez
-              jetbrains-toolbox
-              jetbrains.rider
               google-chrome
               nodejs_22
               brave

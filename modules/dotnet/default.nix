@@ -13,7 +13,6 @@ in {
       type = lib.types.listOf lib.types.package;
       default = with pkgs.dotnetCorePackages; [
         sdk_10_0
-        sdk_9_0
       ];
       description = "List of .NET SDKs to install";
     };
