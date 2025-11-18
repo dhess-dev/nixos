@@ -15,7 +15,7 @@ in {
     (jetbrains.plugins.addPlugins jetbrains.rider jetbrains-plugins)
     #(jetbrains.plugins.addPlugins jetbrains.rust-rover jetbrains-plugins)
     #(jetbrains.plugins.addPlugins jetbrains.webstorm jetbrains-plugins)
-    #(pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate jetbrains-plugins)
+    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate jetbrains-plugins)
     #jetbrains-toolbox
   ];
 }
