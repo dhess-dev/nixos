@@ -149,7 +149,6 @@
               git
               alejandra
               bluez
-              google-chrome
               nodejs_22
               losslesscut-bin
               brave
@@ -160,6 +159,9 @@
               pkgs.onlyoffice-desktopeditors
               ppsspp-sdl-wayland
               protonvpn-gui
+              bashInteractive
+              google-chrome
+              microsoft-edge
             ];
 
             hardware.bluetooth.enable = true;

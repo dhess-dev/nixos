@@ -8,5 +8,6 @@
     ./zsh
     ./arduino
     ./virtualbox
+    ./virt-manager
   ];
 }

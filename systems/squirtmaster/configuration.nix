@@ -48,6 +48,7 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
+  dhess.virt-manager.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -82,4 +83,5 @@
   dhess.desktop.enable = true;
   dhess.dotnet.enable = true;
   dhess.virtualbox.enable = true;
+  programs.bash.enable = true;
 }
