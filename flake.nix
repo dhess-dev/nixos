@@ -210,6 +210,7 @@
               discord
               dbeaver-bin
               pkgs.onlyoffice-desktopeditors
+              microsoft-edge
             ];
 
             hardware.bluetooth.enable = true;
